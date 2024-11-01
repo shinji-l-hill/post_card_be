@@ -19,7 +19,10 @@ class AdminAuthService implements AdminAuthServiceInterface
     $inputPassword = $credentials['password'];
 
     if (!$user || !Hash::check($inputPassword, $user->password)) {
-      return ApiResponse::failed('E0001', null, 401);
+      return ApiResponse::failed(
+        config('constants.ERRORS.LOGIN_FAILED'),
+        null,
+        401);
     }
 
     return $this->respondWithToken($token);
@@ -41,7 +44,7 @@ class AdminAuthService implements AdminAuthServiceInterface
                 'email' => $user->email,
             ]
         ],
-        'S0001'
+        config('constants.SUCCESS.LOGIN_SUCCESS')
       );
     }
 }
