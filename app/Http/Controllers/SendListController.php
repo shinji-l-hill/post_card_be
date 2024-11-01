@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\SendListServiceInterface;
 use App\Http\Requests\SendListRequest;
 use App\Http\Responses\ApiResponse;
+use App\Models\SendList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -22,7 +23,21 @@ class SendListController extends Controller
      */
     public function index()
     {
-        //
+        $sendlist = SendList::all();
+        try {
+            return ApiResponse::success(
+                $sendlist,
+                config('constants.SUCCESS.FETCH_SUCCESS'),
+            );
+        } catch (\Exception $e) {
+            // エラーレスポンスを返す
+            Log::error($e);
+            return ApiResponse::failed(
+                config('constants.ERRORS.FETCH_FAILED'),
+                null, 
+                500
+            );
+        }   
     }
 
     /**
