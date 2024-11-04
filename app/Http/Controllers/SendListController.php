@@ -6,6 +6,7 @@ use App\Contracts\SendListServiceInterface;
 use App\Http\Requests\SendListRequest;
 use App\Http\Responses\ApiResponse;
 use App\Models\SendList;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -91,7 +92,7 @@ class SendListController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $this->sendListService->update($request, $id);
     }
 
     /**
@@ -100,5 +101,21 @@ class SendListController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function fetchOneData(string $id)
+    {
+        try {
+            $data = SendList::where('uuid', $id)->firstOrFail();
+            return ApiResponse::success(
+                $data,
+            );
+        } catch (ModelNotFoundException $e) {
+            return ApiResponse::failed(
+                config('constants.ERRORS.FETCH_FAILED'),
+                null, 
+                404
+            );
+        }
     }
 }

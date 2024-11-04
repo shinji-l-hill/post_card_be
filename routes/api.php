@@ -10,3 +10,5 @@ Route::post('/admin/login', [AdminAuthController::class, 'login']);
 
 Route::post('/sendlist/register', [SendListController::class, 'store']);
 Route::get('/sendlist', [SendListController::class, 'index']);
+Route::get('/sendlist/{id}', [SendListController::class, 'fetchOneData']);
+Route::post('/sendlist/{id}/update', [SendListController::class, 'update']);

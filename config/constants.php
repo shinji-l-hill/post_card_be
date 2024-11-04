@@ -11,5 +11,6 @@ return [
     'LOGIN_SUCCESS' => 'S0001',
     'STORE_SUCCESS' => 'S0002',
     'FETCH_SUCCESS' => 'S0003',
+    'UPDATE_SUCCESS' => 'S0004',
   ],
 ];

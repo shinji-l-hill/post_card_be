@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\AdminAuthServiceInterface;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AdminAuthController extends Controller
 {
