@@ -40,4 +40,30 @@ class SendListService implements SendListServiceInterface
       config('constants.SUCCESS.UPDATE_SUCCESS'),
     );
   }
+
+  public function destroy($id) 
+  {
+    $target = SendList::findOrFail($id);
+    if(!$target) {
+      ApiResponse::failed(
+        config('constants.ERRORS.DELETE_FAILED'),
+        null, 
+        401
+      );
+    }
+    try {
+      $target->delete();
+      $all_list = SendList::all();
+      return ApiResponse::success(
+        $all_list,
+        config('constants.SUCCESS.DELETE_SUCCESS'),
+      );
+    } catch(ModelNotFoundException $e) {
+      ApiResponse::failed(
+        config('constants.ERRORS.DELETE_FAILED'),
+        null, 
+        401
+      );
+    }
+  }
 }

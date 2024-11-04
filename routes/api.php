@@ -12,3 +12,4 @@ Route::post('/sendlist/register', [SendListController::class, 'store']);
 Route::get('/sendlist', [SendListController::class, 'index']);
 Route::get('/sendlist/{id}', [SendListController::class, 'fetchOneData']);
 Route::post('/sendlist/{id}/update', [SendListController::class, 'update']);
+Route::post('/sendlist/{id}/delete', [SendListController::class, 'destroy']);

@@ -100,7 +100,7 @@ class SendListController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return $this->sendListService->destroy($id);
     }
 
     public function fetchOneData(string $id)

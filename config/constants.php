@@ -12,5 +12,6 @@ return [
     'STORE_SUCCESS' => 'S0002',
     'FETCH_SUCCESS' => 'S0003',
     'UPDATE_SUCCESS' => 'S0004',
+    'DELETE_SUCCESS' => 'S0005',
   ],
 ];
