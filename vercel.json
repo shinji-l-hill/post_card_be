@@ -19,7 +19,7 @@
         "APP_KEY": "base64:bDtD5OD8SAunaIW8IjIYF80L0h7IAujePbHWTpr5dJ0=",
         "APP_DEBUG": "false",
         "APP_TIMEZONE": "UTC",
-        "APP_URL": "https://post-card-j9hehryao-shinjilhills-projects.vercel.app/",
+        "APP_URL": "https://post-card-be.vercel.app",
         "APP_LOCALE": "en",
         "APP_FALLBACK_LOCALE": "en",
         "APP_FAKER_LOCALE": "en_US",
