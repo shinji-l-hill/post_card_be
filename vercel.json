@@ -1,9 +1,10 @@
 {
+    "version": 2,
     "regions": ["hnd1"],
     "builds": [
         {
             "src": "public/index.php",
-            "use": "vercel-php-runtime"
+            "use": "@vercel/php"
         }
     ],
     "routes": [
@@ -14,12 +15,14 @@
     ],
     "env": {
         "APP_NAME": "Laravel Vercel",
-        "APP_DEBUG": "false",
         "APP_ENV": "production",
         "APP_KEY": "base64:bDtD5OD8SAunaIW8IjIYF80L0h7IAujePbHWTpr5dJ0=",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://post-card-be.vercel.app/",
         "LOG_CHANNEL": "stderr",
+        "CACHE_DRIVER": "array",
         "SESSION_DRIVER": "cookie",
         "VIEW_COMPILED_PATH": "/tmp",
-        "CACHE_DRIVER": "array"
+        "APP_STORAGE": "/tmp"
     }
 }
